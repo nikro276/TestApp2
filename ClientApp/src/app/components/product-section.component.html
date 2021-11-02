@@ -1,0 +1,58 @@
+<div class="d-flex flex-column p-2">
+    <h3 class="my-3">Product Section</h3>
+    <div class="d-flex flex-row">
+        <div class="d-flex w-25 flex-column pr-3">
+            <div class="my-2">
+                <dx-date-box [(value)]="dateFilter" [showClearButton]="true" [displayFormat]="displayFormat"></dx-date-box>
+            </div>
+            <div class="mb-2">
+                <dx-lookup 
+                    [(value)]="categoryFilter"
+                    [dataSource]="categoriesStore"
+                    valueExpr="id"
+                    displayExpr="name"
+                    [showClearButton]="true">
+                </dx-lookup>
+            </div>
+            <button type="button" class="btn btn-primary w-50" (click)="onButtonClick()">Обновить</button>
+        </div>
+        <div class="w-75 my-2">
+            <dx-data-grid id="gridContainer" [dataSource]="productsStore" [showBorders]="true">
+                <dxo-editing
+                    [allowUpdating]="true"
+                    [allowAdding]="false"
+                    [allowDeleting]="true"
+                    [confirmDelete]="true"
+                    mode="row">
+                </dxo-editing>
+                <dxi-column dataField="id" caption="Id" [allowEditing]="false"></dxi-column>
+                <dxi-column dataField="name" caption="Наименование"></dxi-column>
+                <dxi-column dataField="sourceId" caption="Производитель">
+                    <dxo-lookup
+                        [dataSource]="sourcesStore"
+                        valueExpr="id"
+                        displayExpr="name"
+                        [allowClearing]="true">
+                    </dxo-lookup>
+                </dxi-column>
+                <dxi-column dataField="categoryId" caption="Категория">
+                    <dxo-lookup
+                        [dataSource]="categoriesStore"
+                        valueExpr="id"
+                        displayExpr="name"
+                        [allowClearing]="true">
+                    </dxo-lookup>
+                </dxi-column>
+                <dxi-column 
+                    dataField="modifiedOn" 
+                    dataType="date" 
+                    caption="Дата изменения"
+                    [format]="displayFormat"
+                    [editorOptions]="{
+                        showClearButton: true
+                    }"></dxi-column>
+                <dxi-column dataField="comment" caption="Комментарий"></dxi-column>
+            </dx-data-grid>
+        </div>
+    </div>
+</div>
