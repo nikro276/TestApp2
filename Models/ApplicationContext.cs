@@ -17,6 +17,13 @@ namespace TestApp2
             Initialize();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<Category>().ToTable("Category");
+            modelBuilder.Entity<Source>().ToTable("Source");
+        }
+
         private void Initialize()
         {
             Database.EnsureCreated();
@@ -46,7 +53,7 @@ namespace TestApp2
             int sl = Sources.Count(),
                 cl = Categories.Count();
             Random random = new Random();
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 10; i++)
             {
                 product = new Product()
                 {
