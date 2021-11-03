@@ -32,7 +32,7 @@ namespace TestApp2
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var fileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "ClientApp/dist"));
+            var fileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "ClientApp/app"));
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="testApp">
+<head>
+    <meta charset="utf-8">
+    <title>Test App</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/devextreme/dist/css/dx.light.compact.css" />
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/devextreme/dist/js/dx.all.js"></script>
+    <script src="app.js"></script>
+    <script src="not-found-page/not-found-page.component.js"></script>
+    <script src="product-section/product-section.component.js"></script>
+    <script src="top-bar/top-bar.component.js"></script>
+</head>
+<body>
+    <top-bar></top-bar>
+    <div class="d-flex justify-content-center">
+        <div class="w-75 flex-column">
+            <div class="view-container">
+                <div ng-view class="view-frame"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

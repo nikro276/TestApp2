@@ -1,1 +1,0 @@
-{"version":3,"file":"top-bar.component.js","sourceRoot":"","sources":["top-bar.component.ts"],"names":[],"mappings":";;;;;;AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,eAAe,CAAC;AAM1C,IAAa,eAAe,GAA5B,MAAa,eAAe;CAE3B,CAAA;AAFY,eAAe;IAJ3B,SAAS,CAAC;QACP,QAAQ,EAAE,aAAa;QACvB,WAAW,EAAE,0BAA0B;KAC1C,CAAC;GACW,eAAe,CAE3B;SAFY,eAAe"}

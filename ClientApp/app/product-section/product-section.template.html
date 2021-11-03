@@ -1,0 +1,17 @@
+<div class="d-flex flex-column p-2">
+    <h3 class="my-3">Product Section</h3>
+    <div class="d-flex flex-row">
+        <div class="d-flex w-25 flex-column pr-3">
+            <div class="my-2">
+                <div dx-date-box="dateBoxOptions"></div>
+            </div>
+            <div class="mb-2">
+                <div dx-lookup="lookupOptions"></div>
+            </div>
+            <button type="button" class="btn btn-primary w-50" ng-click="onButtonClick()">Обновить</button>
+        </div>
+        <div class="w-75 my-2">
+            <div dx-data-grid="dataGridOptions"></div>
+        </div>
+    </div>
+</div>

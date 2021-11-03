@@ -8,14 +8,13 @@ namespace TestApp2
 {
     public class ApplicationContext : DbContext
     {
+        public int SourcesCount { get; set; } = 2;
+        public int CategoriesCount { get; set; } = 3;
         public DbSet<Product> Products { get; set; }
         public DbSet<Source> Sources { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
-        {
-            Initialize();
-        }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,13 +23,12 @@ namespace TestApp2
             modelBuilder.Entity<Source>().ToTable("Source");
         }
 
-        private void Initialize()
+        public void Initialize()
         {
-            Database.EnsureCreated();
             if (Products.Any())
                 return;
-            Source[] sources = new Source[2];
-            Category[] categories = new Category[3];
+            Source[] sources = new Source[SourcesCount];
+            Category[] categories = new Category[CategoriesCount];
             for (int i = 0; i < 2; i++)
             {
                 sources[i] = new Source()
@@ -50,8 +48,6 @@ namespace TestApp2
             }
             Categories.AddRange(categories);
             Product product;
-            int sl = Sources.Count(),
-                cl = Categories.Count();
             Random random = new Random();
             for (int i = 0; i < 10; i++)
             {
@@ -59,8 +55,8 @@ namespace TestApp2
                 {
                     Id = Guid.NewGuid(),
                     Name = "product" + (i + 1),
-                    Source = sources[random.Next(0, sl)],
-                    Category = categories[random.Next(0, cl)],
+                    Source = sources[random.Next(0, SourcesCount)],
+                    Category = categories[random.Next(0, CategoriesCount)],
                     ModifiedOn = new DateTime(random.Next(2020, 2022), random.Next(1, 13), random.Next(1, 30)),
                     Comment = ""
                 };
