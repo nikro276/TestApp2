@@ -19,7 +19,6 @@ namespace TestApp2.Controllers
 
         public List<Product> GetProducts([FromBody] GetProductsResponse response)
         {
-            _context.Database.EnsureCreated();
             var products = _context.Products.Include(x => x.Category).Include(x => x.Source) as IQueryable<Product>;
             if (response.CategoryFilter != null)
                 products = products.Where(x => x.CategoryId == response.CategoryFilter);
