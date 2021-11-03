@@ -82,6 +82,9 @@ productSection.component('productSection', {
             valueExpr: "id",
             displayExpr: "name",
             showClearButton: true,
+            dropDownOptions: {
+                showTitle: false,
+            },
             onValueChanged: function(data) {
                 categoryFilter = data.value;
             }

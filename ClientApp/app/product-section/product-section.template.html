@@ -1,12 +1,14 @@
 <div class="d-flex flex-column p-2">
-    <h3 class="my-3">Product Section</h3>
+    <h3 class="my-3">Продукты</h3>
     <div class="d-flex flex-row">
         <div class="d-flex w-25 flex-column pr-3">
             <div class="my-2">
-                <div dx-date-box="dateBoxOptions"></div>
-            </div>
-            <div class="mb-2">
+                <label>Категория</label>
                 <div dx-lookup="lookupOptions"></div>
+            </div>
+            <div class="mb-3">
+                <label>Дата изменения</label>
+                <div dx-date-box="dateBoxOptions"></div>
             </div>
             <button type="button" class="btn btn-primary w-50" ng-click="onButtonClick()">Обновить</button>
         </div>
